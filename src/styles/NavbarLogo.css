@@ -1,0 +1,62 @@
+.autoslide {
+    height: 5vh;
+   width: 100%;
+  background-color: black;
+  display: flex;
+  
+
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translate(-100%);
+    }
+}
+.logos {
+    overflow: hidden;
+    padding: 10px 0;
+   
+    white-space: nowrap;
+    position: relative;
+
+
+
+
+}
+
+
+
+.logo-slide {
+    display: inline-block;
+    animation: 10s slide infinite linear;
+}
+.logo-slide img {
+    height: 50px; /* Adjust the height to your preference */
+      /* Maintain aspect ratio */
+    margin: 0 40px; /* Adjust the margin if needed */
+}
+.logo-slide  img:hover {
+    transform: scale(2.3);
+    transition: 0.3s;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
