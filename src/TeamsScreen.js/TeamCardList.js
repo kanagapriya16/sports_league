@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Grid } from '@mui/material';
-import { motion } from 'framer-motion';
-import LazyLoad from 'react-lazy-load';
-import cardsData from './CardsData';
-import TeamCard from './TeamCard';
+import React, { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
+import { motion } from "framer-motion";
+import LazyLoad from "react-lazy-load";
+import cardsData from "./CardsData";
+import TeamCard from "./TeamCard";
+import { Link } from "react-router-dom";
+import TeamMembers from "../components/TeamMembers";
 
 const TeamCardList = () => {
   const [isMounted, setIsMounted] = useState(false);
+
   const [visibleCards, setVisibleCards] = useState(4);
+
+  const handleCardClick = (cardId) => {
+    console.log(`Clicked on card with id: ${cardId}`);
+    const id = cardId;
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -28,13 +36,18 @@ const TeamCardList = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{
-                  type: 'spring',
+                  type: "spring",
                   stiffness: 300,
                   damping: 20,
                   delay: index < visibleCards ? index * 0.1 : 0,
                 }}
               >
-                <TeamCard {...card} />
+                <Link
+                  to={`/details/${card.id}`}
+                  onClick={() => handleCardClick(card.id)}
+                >
+                  <TeamCard {...card} />
+                </Link>
               </motion.div>
             </LazyLoad>
           </Grid>

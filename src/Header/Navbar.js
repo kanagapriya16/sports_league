@@ -22,21 +22,12 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SearchIcon from "@mui/icons-material/Search";
 import SportsCricketIcon from "@mui/icons-material/SportsCricket";
-import batsman from "../assest/batsman.png";
-import PersonIcon from '@mui/icons-material/Person';
-import {
-  BrowserRouter as Router,
-} from "react-router-dom";
+
+import PersonIcon from "@mui/icons-material/Person";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const drawerWidth = "50%";
-const navItems = [
-  "Home",
-  "Teams",
-  "Venues",
-  "About",
-  "More",
-];
-
+const navItems = ["Home", "Teams", "Venues", "About", "More"];
 
 function Navbar(props) {
   const { window } = props;
@@ -53,7 +44,8 @@ function Navbar(props) {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        background: "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)", // Blue background color
+        background:
+          "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)", // Blue background color
       }}
     >
       <Box sx={{ textAlign: "start", marginTop: "10px" }}>
@@ -64,15 +56,30 @@ function Navbar(props) {
             padding: "10px",
           }}
         >
-          <Box sx={{
-            border:"0.8px solid white"
-          }}>
-            <Button sx={{ color: "white", gap: "30px" ,border:"0.8px solid white" , "&:hover": {
-      background: "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(153,198,249,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
-      border: "2px double lightblue",
-    },}}>
+          <Box
+            sx={{
+              border: "0.8px solid white",
+            }}
+          >
+            <Button
+              sx={{
+                color: "white",
+                gap: "30px",
+                border: "0.8px solid white",
+                "&:hover": {
+                  background:
+                    "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(153,198,249,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
+                  border: "2px double lightblue",
+                },
+              }}
+            >
               <AccountCircleSharpIcon />
-              <Typography   variant="h6" color={"white"} textTransform={"none"} fontWeight={800} >
+              <Typography
+                variant="h6"
+                color={"white"}
+                textTransform={"none"}
+                fontWeight={800}
+              >
                 sign in
               </Typography>
             </Button>
@@ -86,54 +93,55 @@ function Navbar(props) {
           </IconButton>
         </Box>
       </Box>
-      <List style={{
-        fontWeight:900
-      }} sx={{ flexGrow: 1 }}>
+      <List
+        style={{
+          fontWeight: 900,
+        }}
+        sx={{ flexGrow: 1 }}
+      >
         {navItems.map((item, index) => (
           <ListItem key={item} disablePadding>
-           <ListItemButton 
-  sx={{
+            <ListItemButton
+              sx={{
+                textAlign: "start",
+                margin: "0 13px",
+                position: "relative",
+                overflow: "hidden", // Hide overflow for pseudo-element to extend
+                "&:before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 38,
+                  right: "100%", // Set right to 100% to start from the right
+                  width: "100%",
+                  height: "3px",
+                  backgroundColor: "yellow",
+                  transition: "right 0.3s ease", // Transition right property
+                },
+                "&:hover:before": {
+                  right: 0, // Move to the left on hover
+                },
+                "&:focus, &:active": {
+                  outline: "none",
 
-    textAlign:"start",
-    margin: "0 13px",
-   position: "relative",
-   overflow: "hidden", // Hide overflow for pseudo-element to extend
-   "&:before": {
-     content: '""',
-     position: "absolute",
-     top: 38,
-     right: "100%", // Set right to 100% to start from the right
-     width: "100%",
-     height: "3px",
-     backgroundColor: "yellow",
-     transition: "right 0.3s ease", // Transition right property
-   },
-   "&:hover:before": {
-     right: 0, // Move to the left on hover
-   },
-   "&:focus, &:active": {
-     outline: "none",
-
-     
-     // Remove focus outline
-   },
- }}
->
-  {index !== 0 && index && (
-    <ListItemText  
-      color="white"
-      primary={item}
-      sx={{
-        color: isSmallScreen ? "white" : "white",
-        fontWeight: isSmallScreen ? 900 : 'inherit', // Set fontWeight to 900 for small screens
-        fontSize: "90px",
-        "&:hover": {
-          color: "skyblue",
-        },
-      }}
-    />
-  )}
-</ListItemButton>
+                  // Remove focus outline
+                },
+              }}
+            >
+              {index !== 0 && index && (
+                <ListItemText
+                  color="white"
+                  primary={item}
+                  sx={{
+                    color: isSmallScreen ? "white" : "white",
+                    fontWeight: isSmallScreen ? 900 : "inherit", // Set fontWeight to 900 for small screens
+                    fontSize: "90px",
+                    "&:hover": {
+                      color: "skyblue",
+                    },
+                  }}
+                />
+              )}
+            </ListItemButton>
           </ListItem>
         ))}
       </List>
@@ -153,7 +161,9 @@ function Navbar(props) {
             position={isSmallScreen ? "fixed" : "sticky"}
             sx={{
               bottom: isSmallScreen ? "auto" : 0,
-              background:  isSmallScreen ? "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)": "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
+              background: isSmallScreen
+                ? "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)"
+                : "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
               display: "flex",
               borderTop: "0.5px solid white",
               top: isSmallScreen ? 0 : "auto",
@@ -166,28 +176,24 @@ function Navbar(props) {
                 alignItems: "center",
                 textAlign: "center",
                 justifyContent: "space-between",
-
-                
               }}
             >
-
-
-              <img  style={{
+              <img
+                style={{
                   height: "88px",
                   marginLeft: "-3%",
                   display: "flex",
 
-color:"white"
-                  
-                }} src={loho} ></img>
+                  color: "white",
+                }}
+                src={loho}
+              ></img>
               <img
                 src="https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg"
                 style={{
                   height: "30px",
-                  marginLeft: isSmallScreen ? "-20%":"-1%",
+                  marginLeft: isSmallScreen ? "-20%" : "-1%",
                   display: "flex",
-
-
                 }}
                 alt="Logo"
               />
@@ -198,50 +204,48 @@ color:"white"
                   textAlign: "center",
                 }}
               >
-<Button
- disableElevation
- disableFocusRipple
- href="/home"
- key="more"
- sx={{
-   color: isSmallScreen ? "white" : "white",
-   fontSize: "17px",
-   textTransform: "none",
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  href="/home"
+                  key="more"
+                  sx={{
+                    color: isSmallScreen ? "white" : "white",
+                    fontSize: "17px",
+                    textTransform: "none",
 
+                    fontWeight: 700,
+                    margin: "0 13px",
+                    position: "relative",
+                    overflow: "hidden", // Hide overflow for pseudo-element to extend
+                    "&:before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 38,
+                      right: "100%", // Set right to 100% to start from the right
+                      width: "100%",
+                      height: "3px",
+                      backgroundColor: "yellow",
+                      transition: "right 0.3s ease", // Transition right property
+                    },
+                    "&:hover:before": {
+                      right: 0, // Move to the left on hover
+                    },
+                    "&:focus, &:active": {
+                      outline: "none",
 
-   fontWeight: 700,
-   margin: "0 13px",
-   position: "relative",
-   overflow: "hidden", // Hide overflow for pseudo-element to extend
-   "&:before": {
-     content: '""',
-     position: "absolute",
-     top: 38,
-     right: "100%", // Set right to 100% to start from the right
-     width: "100%",
-     height: "3px",
-     backgroundColor: "yellow",
-     transition: "right 0.3s ease", // Transition right property
-   },
-   "&:hover:before": {
-     right: 0, // Move to the left on hover
-   },
-   "&:focus, &:active": {
-     outline: "none",
+                      // Remove focus outline
+                    },
+                  }}
+                >
+                  Home
+                </Button>
 
-     
-     // Remove focus outline
-   },
- }}
-
-
->
-  Home
-</Button>
-
-                <Button disableElevation disableFocusRipple disableTouchRipple
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
                   href="/venuse"
-                
                   key="PremierLeague"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
@@ -266,18 +270,18 @@ color:"white"
                     },
                     "&:focus, &:active": {
                       outline: "none",
-                 
-                      
+
                       // Remove focus outline
                     },
                   }}
-                 
                 >
                   Venues
                 </Button>
-                <Button disableElevation disableFocusRipple disableTouchRipple
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
                   href="/teams"
-               
                   key="fantacy"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
@@ -302,18 +306,18 @@ color:"white"
                     },
                     "&:focus, &:active": {
                       outline: "none",
-                 
-                      
+
                       // Remove focus outline
                     },
                   }}
-                 
                 >
                   Teams
                 </Button>
-                <Button disableElevation disableFocusRipple disableTouchRipple
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
                   href="/About"
-               
                   key="fantacy"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
@@ -338,23 +342,22 @@ color:"white"
                     },
                     "&:focus, &:active": {
                       outline: "none",
-                 
-                      
+
                       // Remove focus outline
                     },
                   }}
-                 
                 >
                   About
                 </Button>
-                <Button disableElevation disableFocusRipple disableTouchRipple
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
                   href="/more"
-               
                   key="fantacy"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
 
-                  
                     fontSize: "17px",
                     textTransform: "none",
                     fontWeight: 700,
@@ -365,7 +368,6 @@ color:"white"
                       content: '""',
                       position: "absolute",
 
-                    
                       top: 38,
                       right: "100%", // Set right to 100% to start from the right
                       width: "100%",
@@ -374,65 +376,69 @@ color:"white"
                       transition: "right 0.3s ease", // Transition right property
                     },
                     "&:hover:before": {
-                      right: 0, 
-                      
-                   
-                      
+                      right: 0,
+
                       // Move to the left on hover
                     },
                     "&:focus, &:active": {
                       outline: "none",
-                 
-                      
+
                       // Remove focus outline
                     },
                   }}
-                 
                 >
                   More
                 </Button>
               </Box>
               {isSmallScreen ? (
-                <IconButton  
+                <IconButton
                   color="inherit"
                   aria-label="open drawer"
                   edge="start"
                   onClick={handleDrawerToggle}
-                  sx={{ marginRight: "16px", display: { sm: "none" } ,}}
+                  sx={{ marginRight: "16px", display: { sm: "none" } }}
                 >
-                  <MenuIcon sx={{
-
-                    fontSize:"40px"
-                  }} />
+                  <MenuIcon
+                    sx={{
+                      fontSize: "40px",
+                    }}
+                  />
                 </IconButton>
-              ) : (<Button
-              
-                disableElevation
-  disableFocusRipple
-  variant="contained"
-  sx={{
-    backgroundColor: "transparent",
-    borderRadius: "20px",
-    border: "0.1px solid white",
-    fontWeight:"900",
-    transition: "border-color 0.3s ease-in-out", // Add transition for smooth animation
-    "&:hover": {
-      background: "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(153,198,249,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
-      border: "2px double lightblue",
-    },
-  }}
-              >
-            <PersonIcon/>
-                Sign In
-              </Button>
+              ) : (
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "transparent",
+                    borderRadius: "20px",
+                    border: "0.1px solid white",
+                    fontWeight: "900",
+                    transition: "border-color 0.3s ease-in-out", // Add transition for smooth animation
+                    "&:hover": {
+                      background:
+                        "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(153,198,249,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
+                      border: "2px double lightblue",
+                    },
+                  }}
+                >
+                  <PersonIcon />
+                  Sign In
+                </Button>
               )}
-             <IconButton   sx={{ color: "white", display: isSmallScreen ? "none" : "block",ml:"10px" }}>
-    <SearchIcon sx={{
-      fontSize:"40px",
-     
-    }} />
-  </IconButton>
-
+              <IconButton
+                sx={{
+                  color: "white",
+                  display: isSmallScreen ? "none" : "block",
+                  ml: "10px",
+                }}
+              >
+                <SearchIcon
+                  sx={{
+                    fontSize: "40px",
+                  }}
+                />
+              </IconButton>
             </Toolbar>
           </AppBar>
           <nav>
@@ -450,7 +456,8 @@ color:"white"
                   boxSizing: "border-box",
                   width: drawerWidth,
                   top: 0,
-                  backgroundColor: "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
+                  backgroundColor:
+                    "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
                 },
               }}
             >
