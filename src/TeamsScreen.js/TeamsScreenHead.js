@@ -16,10 +16,14 @@ const AnimatedText = styled(Typography)`
   margin-bottom: 2.81rem;
   display: inline-block;
   animation: ${moveText} 1s ease-in-out;
-  background: linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
   -webkit-background-clip: text;
   color: transparent;
-  
+
   font-size: 24px;
 `;
 const DropdownButton = styled.button`
@@ -29,24 +33,27 @@ const DropdownButton = styled.button`
   font-size: 16px;
   border: 2px solid white;
   cursor: pointer;
-  font-weight:700;
+  font-weight: 700;
   position: absolute;
   border-radius: 40px; /* Updated border-radius */
   margin-top: 10px; /* Updated margin-top */
 
   &:hover {
-    background: linear-gradient(90deg, rgba(27, 25, 50, 1) 0%, rgba(153, 198, 249, 1) 0%, rgba(26, 27, 26, 1) 100%, rgba(117, 128, 130, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(27, 25, 50, 1) 0%,
+      rgba(153, 198, 249, 1) 0%,
+      rgba(26, 27, 26, 1) 100%,
+      rgba(117, 128, 130, 1) 100%
+    );
     border: 2px double lightblue;
-
-
   }
 
   margin-bottom: 10px; /* Added margin-bottom */
 `;
 
-
 const DropdownContent = styled.div`
-  display: ${props => (props.open ? "block" : "none")};
+  display: ${(props) => (props.open ? "block" : "none")};
   position: absolute;
   top: 100%;
   border-top: 2px solid black;
@@ -72,7 +79,6 @@ const DropdownContent = styled.div`
     }
   }
 `;
-
 
 const SearchBar = styled.input`
   padding: 5px;
@@ -113,7 +119,7 @@ const TeamScreenHead = () => {
       <main className="container">
         <Box
           sx={{
-            position: "relative",
+            position: "fixed",
             background:
               "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(25,77,136,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
             color: "#e5e5e5",
@@ -132,13 +138,13 @@ const TeamScreenHead = () => {
             </AnimatedText>
           </section>
           <DropdownButton onClick={toggleDropdown}>
-            {selectedYear ? `Selected Year: ${selectedYear}` : "Fileter by season"}
+            {selectedYear
+              ? `Selected Year: ${selectedYear}`
+              : "Fileter by season"}
           </DropdownButton>
           <DropdownContent open={isDropdownOpen}>
             {generateYearOptions()}
           </DropdownContent>
-
-          
         </Box>
       </main>
     </>

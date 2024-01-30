@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import "../styles/Fixturematches.css";
 import Rajastan from "../assest/Rajastan R.png";
 import srh from "../assest/srh.png";
@@ -11,80 +11,110 @@ import lsg from "../assest/lsg.png";
 import delhi from "../assest/delhi.png";
 import Teams from "../assest/Teams.png";
 import mumbai from "../assest/mumbai.png";
-import { Divider, Typography } from '@mui/material';
+import rr from "../assest/Rajastan R.png";
+import { Divider, Typography } from "@mui/material";
 
 const teamLogos = {
-  SUNRISERSHYDRABAD: srh,
-  CHENNAISUPERKINGS: cs,
-  KOLKATTARIDERS: kkr,
-  KINGSPUNJAB: kings,
-  DELHICAPITAL: delhi,
-  GUJARATTITANS: gujarat,
-  LUCkNOWSUPERGIANTS: lsg,
-  ROYALSCHALLENGERS: rcb,
+  SRH: srh,
+  CSK: cs,
+  KKR: kkr,
+  PBKS: kings,
+  DC: delhi,
+  GT: gujarat,
+  LSG: lsg,
+  RCB: rcb,
+  RR: rr,
+  MI: mumbai,
 };
 
-const matchDetails = [
-  {
-    teams: ['SUNRISERSHYDRABAD', 'CHENNAISUPERKINGS'],
-    date: '2024-fab-15',
-    time: '19:00',
-    ground: 'MA chithamparam',
-  },
-  {
-    teams: ['KOLKATTARIDERS', 'KINGSPUNJAB'],
-    date: '2024-fab-16',
-    time: '19:00',
-    ground: 'Eden garden',
-  },
-  {
-    teams: ['DELHICAPITAL', 'GUJARATTITANS'],
-    date: '2024-fab-17',
-    time: '19:00',
-    ground: 'NARENDRA MODI STADIUM',
-  },
-  {
-    teams: ['LUCkNOWSUPERGIANTS', 'ROYALSCHALLENGERS'],
-    date: '2024-fab-18',
-    time: '19:00',
-    ground: 'CHINNASWAMY',
-  },
-  // Add more match details as needed
-];
+const FixtureMatches = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/get_all_match_schedules", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-const FxtureMatches = () => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
   return (
-    <div className='Fixture container'>
-      <div className='upcoming-matches'>
-        <Typography textAlign={"start"} justifyContent={"flex-start"} variant="h5" color="black" fontWeight={800} mb={4}>
-          Upcoming Matches
-        </Typography>
-        <div className='match-list'>
-          {matchDetails.map((match, index) => (
-            <div className='match-card' style={{ display: 'flex', alignItems: 'center' }}>
-                 <div className='right-corner-box'>
-                <div style={{ height: "0px", width: "100px", position: "absolute", top: 430, left: 40, background: "green", }}>
-                  <img src={Teams} alt="Right Corner Logo" style={{ height: "90%", width: "90%" }} />
-                </div>
-              </div>
-              <div className='match-details'>
-                <Typography mt={4} mb={2} alignItems={"center"} variant="body2" fontWeight={800} color={"black"} key={index}>
-                  {match.date}
+    <div className="Fixturecontainer">
+      <div className="upcoming-matches">
+        <div className="match-list" style={{}}>
+          {data.map((match, index) => (
+            <div className="match-card" style={{ alignItems: "center" }}>
+              <div className="match-details">
+                <Typography
+                  mt={7}
+                  mb={2}
+                  alignItems={"center"}
+                  variant="body2"
+                  fontWeight={800}
+                  color="white"
+                  key={index}
+                >
+                  Date: {match.match_day}
                 </Typography>
-                <div className='teams'>
-                  <img style={{ height: "50px", width: "50px" }} src={teamLogos[match.teams[0]]} alt={`${match.teams[0]} Logo`} />
-                  <Typography variant='h6' color={"grey"} fontWeight={800}>{match.teams[0]} vs {match.teams[1]}</Typography>
-                  <img style={{ height: "50px", width: "50px" }} src={teamLogos[match.teams[1]]} alt={`${match.teams[1]} Logo`} />
+                <div className="teams">
+                  <img
+                    style={{ height: "50px", width: "50px", marginLeft: "20%" }}
+                    src={teamLogos[match.team1]}
+                    alt={match.team1}
+                  />
+                  <Typography
+                    ml={7}
+                    align="center"
+                    textAlign={"center"}
+                    variant="h6"
+                    color="white"
+                    fontWeight={800}
+                  >
+                    {match.team1} vs {match.team2}
+                  </Typography>
+                  <img
+                    style={{
+                      height: "50px",
+                      width: "50px",
+                      marginRight: "20%",
+                    }}
+                    src={teamLogos[match.team2]}
+                    alt={match.team2}
+                  />
                 </div>
-                <Typography variant="body2" fontWeight={800}>{match.time}</Typography>
-                <Divider sx={{
-                    width:"95vw"
-                }}></Divider>
-                <Typography variant="subtitle2" fontWeight={700} color={"grey"}>
-                  {match.ground}
+                <Typography
+                  variant="body2"
+                  fontWeight={800}
+                  alignItems={"center"}
+                >
+                  Time: {match.start_time}-{match.end_time}
+                </Typography>
+
+                <Typography
+                  alignItems={"center"}
+                  variant="subtitle2"
+                  fontWeight={700}
+                  color={"white"}
+                >
+                  Venue: {match.venue}
                 </Typography>
               </div>
-           
             </div>
           ))}
         </div>
@@ -93,4 +123,4 @@ const FxtureMatches = () => {
   );
 };
 
-export default FxtureMatches;
+export default FixtureMatches;

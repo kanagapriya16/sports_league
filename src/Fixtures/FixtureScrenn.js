@@ -1,15 +1,12 @@
-import React from 'react'
-import { Fixtures } from './Fixtures'
-import FxtureMatches from './FxtureMatches'
+import React from "react";
+import "../styles/fix/fix.css";
+
+import FixtureMatches from "./FxtureMatches";
 
 export const FixtureScrenn = () => {
   return (
-    <div>
-
-
-        <Fixtures/>
-        
-   
+    <div className="fix">
+      <FixtureMatches />
     </div>
-  )
-}
+  );
+};

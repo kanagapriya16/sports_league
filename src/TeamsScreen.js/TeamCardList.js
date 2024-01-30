@@ -28,10 +28,10 @@ const TeamCardList = () => {
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 2, bounce: 2 }}
     >
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} justifyContent="center" gap={5}>
         {cardsData.map((card, index) => (
           <Grid item key={card.id}>
-            <LazyLoad height={200} offset={700}>
+            <LazyLoad height={200} offset={300}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

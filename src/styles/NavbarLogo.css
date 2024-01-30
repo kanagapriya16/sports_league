@@ -1,62 +1,59 @@
-.autoslide {
-    height: 5vh;
-   width: 100%;
-  background-color: black;
-  display: flex;
-  
+/* NavbarLogo.css */
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.autoslide {
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(203, 212, 189, 1) 24%,
+    rgba(158, 189, 142, 1) 41%,
+    rgba(90, 153, 71, 1) 67%,
+    rgba(190, 217, 175, 1) 100%,
+    rgba(6, 5, 27, 1) 100%,
+    rgba(9, 9, 121, 1) 100%
+  );
+  animation: gradient 5s ease infinite;
+  background-size: 400% 400%;
+  position: fixed;
+  overflow: hidden;
 }
 
 @keyframes slide {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translate(-100%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
 }
 .logos {
-    overflow: hidden;
-    padding: 10px 0;
-   
-    white-space: nowrap;
-    position: relative;
-
-
-
-
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
 }
-
-
 
 .logo-slide {
-    display: inline-block;
-    animation: 10s slide infinite linear;
+  display: inline-block;
+  animation: 10s slide infinite linear;
 }
 .logo-slide img {
-    height: 50px; /* Adjust the height to your preference */
-      /* Maintain aspect ratio */
-    margin: 0 40px; /* Adjust the margin if needed */
+  height: 50px; /* Adjust the height to your preference */
+  /* Maintain aspect ratio */
+  margin: 0 40px; /* Adjust the margin if needed */
 }
-.logo-slide  img:hover {
-    transform: scale(2.3);
-    transition: 0.3s;
-  
+.logo-slide img:hover {
+  transform: scale(2.3);
+  transition: 0.3s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

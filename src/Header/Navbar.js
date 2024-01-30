@@ -11,17 +11,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-
+import testball from "../assest/testball.webp";
 import loho from "../assest/loho.png";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SearchIcon from "@mui/icons-material/Search";
-import SportsCricketIcon from "@mui/icons-material/SportsCricket";
 
 import PersonIcon from "@mui/icons-material/Person";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -44,8 +41,6 @@ function Navbar(props) {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        background:
-          "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)", // Blue background color
       }}
     >
       <Box sx={{ textAlign: "start", marginTop: "10px" }}>
@@ -156,19 +151,19 @@ function Navbar(props) {
       <Router>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
-          <AppBar 
+          <AppBar
             elevation={0}
-            position={isSmallScreen ? "fixed" : "sticky"}
+            position={isSmallScreen ? "fixed" : "fixed"}
             sx={{
-              bottom: isSmallScreen ? "auto" : 0,
-              background: isSmallScreen
-                ? "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)"
-                : "linear-gradient(90deg, rgba(27,25,50,1) 0%, rgba(18,47,79,1) 0%, rgba(26,27,26,1) 100%, rgba(117,128,130,1) 100%)",
+              bottom: isSmallScreen ? "auto" : "auto",
+              backgroundImage: `url(${testball})`, // Use the imported image
               display: "flex",
               borderTop: "0.5px solid white",
-              top: isSmallScreen ? 0 : "auto",
+              top: isSmallScreen ? 0 : 60,
               justifyContent: "center",
               textAlign: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
             }}
           >
             <Toolbar
@@ -218,24 +213,22 @@ function Navbar(props) {
                     fontWeight: 700,
                     margin: "0 13px",
                     position: "relative",
-                    overflow: "hidden", // Hide overflow for pseudo-element to extend
+                    overflow: "hidden",
                     "&:before": {
                       content: '""',
                       position: "absolute",
                       top: 38,
-                      right: "100%", // Set right to 100% to start from the right
+                      right: "100%",
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
-                      transition: "right 0.3s ease", // Transition right property
+                      backgroundColor: "#9ebd8e",
+                      transition: "right 0.3s ease",
                     },
                     "&:hover:before": {
-                      right: 0, // Move to the left on hover
+                      right: 0,
                     },
                     "&:focus, &:active": {
                       outline: "none",
-
-                      // Remove focus outline
                     },
                   }}
                 >
@@ -247,7 +240,6 @@ function Navbar(props) {
                   disableFocusRipple
                   disableTouchRipple
                   href="/venuse"
-               
                   sx={{
                     color: isSmallScreen ? "white" : "white",
                     fontSize: "17px",
@@ -263,7 +255,7 @@ function Navbar(props) {
                       right: "100%", // Set right to 100% to start from the right
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
+                      backgroundColor: "#9ebd8e",
                       transition: "right 0.3s ease", // Transition right property
                     },
                     "&:hover:before": {
@@ -291,24 +283,22 @@ function Navbar(props) {
                     fontWeight: 700,
                     margin: "0 13px",
                     position: "relative",
-                    overflow: "hidden", // Hide overflow for pseudo-element to extend
+                    overflow: "hidden",
                     "&:before": {
                       content: '""',
                       position: "absolute",
                       top: 38,
-                      right: "100%", // Set right to 100% to start from the right
+                      right: "100%",
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
-                      transition: "right 0.3s ease", // Transition right property
+                      backgroundColor: "#9ebd8e",
+                      transition: "right 0.3s ease",
                     },
                     "&:hover:before": {
-                      right: 0, // Move to the left on hover
+                      right: 0,
                     },
                     "&:focus, &:active": {
                       outline: "none",
-
-                      // Remove focus outline
                     },
                   }}
                 >
@@ -335,7 +325,7 @@ function Navbar(props) {
                       right: "100%", // Set right to 100% to start from the right
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
+                      backgroundColor: "#9ebd8e",
                       transition: "right 0.3s ease", // Transition right property
                     },
                     "&:hover:before": {
@@ -371,7 +361,8 @@ function Navbar(props) {
                       right: "100%", // Set right to 100% to start from the right
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
+                      backgroundColor: "#9ebd8e",
+
                       transition: "right 0.3s ease", // Transition right property
                     },
                     "&:hover:before": {
@@ -409,7 +400,8 @@ function Navbar(props) {
                       right: "100%", // Set right to 100% to start from the right
                       width: "100%",
                       height: "3px",
-                      backgroundColor: "yellow",
+                      backgroundColor: "#9ebd8e",
+
                       transition: "right 0.3s ease", // Transition right property
                     },
                     "&:hover:before": {

@@ -9,8 +9,8 @@ import { styled } from "@mui/system";
 
 const StyledCard = styled(Card)({
   width: 250,
-  height: 150,
-
+  height: 300,
+  backgroundColor: "#9ebd8e",
   boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
   margin: "20px",
   display: "flex",
@@ -28,12 +28,13 @@ const StyledCard = styled(Card)({
 });
 
 const StyledCardMedia = styled(CardMedia)({
-  height: 130, // Adjust the height as needed
-  width: 100, // Adjust the width as needed
+  height: 230, // Adjust the height as needed
+  width: 200, // Adjust the width as needed
   display: "flex",
   textAlign: "center",
   alignItems: "center",
   justifyContent: "center",
+  marginTop: "10%",
 });
 const TeamCard = ({ id, image, title, body }) => {
   const [expanded, setExpanded] = useState(false);
@@ -55,18 +56,6 @@ const TeamCard = ({ id, image, title, body }) => {
           component="div"
         >
           {title}
-          <ArrowForward
-            fontSize="20px"
-            color="blue"
-            sx={{
-              verticalAlign: "middle",
-              marginLeft: "30px",
-              transition: "transform 0.3s ease",
-              fontWeight: "800",
-            }}
-            onClick={handleExpandClick}
-            style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
-          />
         </Typography>
       </CardContent>
     </StyledCard>

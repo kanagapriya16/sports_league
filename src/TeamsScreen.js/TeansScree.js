@@ -1,18 +1,18 @@
 import React from "react";
 import TeamScreenHead from "./TeamsScreenHead";
-import TeamCard from "./TeamCard";
-import { Teams } from "../components/Teams";
+import "../styles/background/background.css";
 import TeamCardList from "./TeamCardList";
-import DataTable2 from "./Table";
-import DataTable from "./Table";
-
 export const TeansScree = () => {
   return (
-    <div>
+    <div
+      className="team-bg"
+      style={{
+        marginTop: "10%",
+      }}
+    >
       <TeamScreenHead />
 
       <TeamCardList />
-      <DataTable />
     </div>
   );
 };

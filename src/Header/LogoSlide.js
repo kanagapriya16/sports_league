@@ -7,12 +7,10 @@ import kings from "../assest/kings.png";
 import kkr from "../assest/kkr.png";
 import rcb from "../assest/rcb.png";
 import srh from "../assest/srh.png";
-import Wave from "./Wave";
 
 export const LogoSlide = () => {
   return (
     <div>
-     
       <div className="autoslide">
         <div className="logos">
           <div className="logo-slide">
