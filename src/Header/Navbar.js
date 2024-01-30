@@ -156,7 +156,7 @@ function Navbar(props) {
       <Router>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
-          <AppBar
+          <AppBar 
             elevation={0}
             position={isSmallScreen ? "fixed" : "sticky"}
             sx={{
@@ -207,7 +207,8 @@ function Navbar(props) {
                 <Button
                   disableElevation
                   disableFocusRipple
-                  href="/home"
+                  disableTouchRipple
+                  href="/home1"
                   key="more"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
@@ -246,7 +247,7 @@ function Navbar(props) {
                   disableFocusRipple
                   disableTouchRipple
                   href="/venuse"
-                  key="PremierLeague"
+               
                   sx={{
                     color: isSmallScreen ? "white" : "white",
                     fontSize: "17px",
@@ -276,6 +277,42 @@ function Navbar(props) {
                   }}
                 >
                   Venues
+                </Button>
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
+                  href="/fixtures"
+                  key="fantacy"
+                  sx={{
+                    color: isSmallScreen ? "white" : "white",
+                    fontSize: "17px",
+                    textTransform: "none",
+                    fontWeight: 700,
+                    margin: "0 13px",
+                    position: "relative",
+                    overflow: "hidden", // Hide overflow for pseudo-element to extend
+                    "&:before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 38,
+                      right: "100%", // Set right to 100% to start from the right
+                      width: "100%",
+                      height: "3px",
+                      backgroundColor: "yellow",
+                      transition: "right 0.3s ease", // Transition right property
+                    },
+                    "&:hover:before": {
+                      right: 0, // Move to the left on hover
+                    },
+                    "&:focus, &:active": {
+                      outline: "none",
+
+                      // Remove focus outline
+                    },
+                  }}
+                >
+                  Fixtures
                 </Button>
                 <Button
                   disableElevation

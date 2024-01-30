@@ -1,0 +1,67 @@
+/* Fixturematches.css */
+
+.Fixture.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+   margin-top : 26%;
+    color: white;
+
+    animation: fadeInRight 0.8s ease-in-out; 
+  }
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .upcoming-matches {
+    width: 95%;
+    align-items: center;
+  }
+  
+  .match-card {
+
+   
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0 0 13px 0px gray;
+    justify-content: center;
+    font-size: 80px;
+    color: grey;
+    margin-top: 3%;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .date {
+    font-size: 16px;
+    
+  }
+  
+  .teams {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+  }
+ 
+  
+  .teams img {
+    height: 70px;
+    width: 70px;
+    margin-right: 20px;
+    margin-left: 30px;
+  }
+  
+  .time {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
