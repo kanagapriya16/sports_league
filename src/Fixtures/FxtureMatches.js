@@ -12,7 +12,9 @@ import delhi from "../assest/delhi.png";
 import Teams from "../assest/Teams.png";
 import mumbai from "../assest/mumbai.png";
 import rr from "../assest/Rajastan R.png";
-import { Divider, Typography } from "@mui/material";
+import { Divider, IconButton, Typography } from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
+
 
 const teamLogos = {
   SRH: srh,
@@ -56,6 +58,16 @@ const FixtureMatches = () => {
   console.log(data);
   return (
     <div className="Fixturecontainer">
+      <div>
+        <button className="animated-button2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Match Results <span class="arrow">&#x2192;</span>
+        </button>
+      </div>
+
       <div className="upcoming-matches">
         <div className="match-list" style={{}}>
           {data.map((match, index) => (
@@ -118,6 +130,7 @@ const FixtureMatches = () => {
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );

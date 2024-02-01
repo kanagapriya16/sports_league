@@ -203,7 +203,7 @@ function Navbar(props) {
                   disableElevation
                   disableFocusRipple
                   disableTouchRipple
-                  href="/home1"
+                  href="/"
                   key="more"
                   sx={{
                     color: isSmallScreen ? "white" : "white",
@@ -417,6 +417,47 @@ function Navbar(props) {
                   }}
                 >
                   More
+                </Button>
+                <Button
+                  disableElevation
+                  disableFocusRipple
+                  disableTouchRipple
+                  href="/bookings"
+                  key="fantacy"
+                  sx={{
+                    color: isSmallScreen ? "white" : "white",
+
+                    fontSize: "17px",
+                    textTransform: "none",
+                    fontWeight: 700,
+                    margin: "0 13px",
+                    position: "relative",
+                    overflow: "hidden", // Hide overflow for pseudo-element to extend
+                    "&:before": {
+                      content: '""',
+                      position: "absolute",
+
+                      top: 38,
+                      right: "100%", // Set right to 100% to start from the right
+                      width: "100%",
+                      height: "3px",
+                      backgroundColor: "#9ebd8e",
+
+                      transition: "right 0.3s ease", // Transition right property
+                    },
+                    "&:hover:before": {
+                      right: 0,
+
+                      // Move to the left on hover
+                    },
+                    "&:focus, &:active": {
+                      outline: "none",
+
+                      // Remove focus outline
+                    },
+                  }}
+                >
+                  Bookings
                 </Button>
               </Box>
               {isSmallScreen ? (
